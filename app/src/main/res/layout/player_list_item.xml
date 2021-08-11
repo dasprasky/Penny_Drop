@@ -4,6 +4,7 @@
     
     <data>
         <import type="android.view.View"/>
+        <import type="dev.pras.pennydrop.game.AI"/>
 
         <variable
             name="player"
@@ -32,10 +33,24 @@
             android:hint="@string/player_name"
             android:inputType="textPersonName"
             android:text="@={player.playerName}"
+            android:visibility="@{player.isHuman ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintEnd_toStartOf="@+id/switch_player_type"
             app:layout_constraintStart_toEndOf="@+id/checkbox_player_active"
             app:layout_constraintTop_toTopOf="parent"
             android:importantForAutofill="no" />
+
+        <Spinner
+            android:id="@+id/spinner_ai_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:entries="@{AI.getBasicAI()}"
+            android:selectedItemPosition="@={player.selectedAIPosition}"
+            android:visibility="@{player.isHuman ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/edit_test_player_name"
+            app:layout_constraintEnd_toStartOf="@+id/switch_player_type"
+            app:layout_constraintStart_toEndOf="@+id/checkbox_player_active"
+            app:layout_constraintTop_toTopOf="@+id/edit_test_player_name"
+            />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switch_player_type"
