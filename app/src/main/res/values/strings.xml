@@ -9,4 +9,5 @@
     <string name="or">OR</string>
     <string name="pass">Pass</string>
     <string name="coin_icon">bitcoin icon</string>
+    <string name="coins_left">coins(s) left</string>
 </resources>
